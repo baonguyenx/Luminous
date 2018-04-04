@@ -49,3 +49,9 @@ ul {
 ListLink:hover {
     color: blue;
 }
+
+/*-------         navigation  -Footer-           --------*/
+.footer {
+    bottom: 0px;
+    position: absolute;
+}

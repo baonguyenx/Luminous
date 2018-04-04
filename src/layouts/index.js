@@ -14,7 +14,7 @@ const ListLink = props =>
   </li>
 
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, data }) => (
   <div>
     {/*Document head, Helmet*/}
     <Helmet
@@ -30,12 +30,10 @@ const TemplateWrapper = ({ children }) => (
       <nav>
         <div className='header'>
           <Link to='/' style={{textDecoration: 'none', color: 'white'}}>
-            <h1>It's Nguyen.</h1>
+            <h1>{data.site.siteMetadata.title}</h1>
           </Link>
           <p> Code. Science. Brag.</p>
         </div>
-
-
 
         <div className='navlinks'>
           <ul style={{ listStyle: 'none', float: 'left'}}>
@@ -47,10 +45,8 @@ const TemplateWrapper = ({ children }) => (
 
 
         <div className='footer'>
+          <h1> Hello footer </h1>
         </div>
-
-
-
       </nav>
 
       <section>
@@ -60,10 +56,20 @@ const TemplateWrapper = ({ children }) => (
     </div>
 
   </div>
+
+
 )
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
 }
+
+export const query = graphql`
+query LayoutQuery {
+  site {
+    siteMetadata { title }
+  }
+}
+`
 
 export default TemplateWrapper

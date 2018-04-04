@@ -51,20 +51,23 @@ const User = props => (
   </UserWrapper>
 );
 
-export default () => (
-  <Container>
-    <h1>About Styled Components</h1>
-    <p>Styled Components is cool</p>
-    <User
-      username="Jane Doe"
-      avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
-      excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    />
-    <User
-      username="Bob Smith"
-      avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
-      excerpt="I'm Bob smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    />
-  </Container>
-);
+export default ({data}) => 
+  <div>
+    <h1>
+      About {data.site.siteMetadata.title}
+    </h1>
+  
+    <p>
+      Hello there.
+    </p>
+  </div>
 
+  export const query = graphql`
+    query AboutQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `
